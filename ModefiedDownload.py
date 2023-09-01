@@ -3,14 +3,11 @@ import xml.etree.ElementTree as ET
 import pandas as pd
 
 Entrez.email = "dhruvk090@gmail.com"
-Entrez.api_key = "bb108ad551b4a2dc6fa2b367b99a7b329508"
 
 search_term = "Mus musculus[Organism]"
 filters = "Primary submission[Filter] AND Transcriptome or Gene expression[Filter]"
 
-handle = Entrez.esearch(
-    db="bioproject", term=search_term + " AND " + filters
-)
+handle = Entrez.esearch(db="bioproject", term=search_term + " AND " + filters)
 rec_list = Entrez.read(handle)
 handle.close()
 
